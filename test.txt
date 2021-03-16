@@ -1,4 +1,8 @@
 test
+<<<<<<< HEAD
 Ja tu byłem Adrian Wojtasik
 Ja tu byłem Paweł Karolek
 Ja tu byłem Dawid Kubacki
+=======
+Ja tu byłem Adrian Wojtasik
+>>>>>>> parent of 040dd9e (Update test.txt)
