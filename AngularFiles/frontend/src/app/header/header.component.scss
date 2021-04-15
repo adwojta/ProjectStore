@@ -16,57 +16,64 @@
   align-items: center;
   justify-content: flex-end;
 }
+
+.contact, .login{
+  height: 50px;
+  text-align: center;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact:hover,.login:hover{
+  background-color: #d257ff;
+}
+
 header{
   width: 100vw;
   height: 100px;
   background-color: #FFF500;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
-
-}
-.contact, .login{
-  height: 50px;
-  text-align: center;
-  width: 150px;
-  padding:0 20px;
-  display: flex;
-  align-items: center;
-
-}
-.contact{
-padding-right: 30px;
-}
-.contact:hover,.login:hover{
-  background-color: #d257ff;
-}
-svg{
-  width: 20px;
-  fill: rgb(255, 255, 255);
-  margin-right: 15px;
-}
-
-.logo{
-  margin-left: 100px;
-  img {
-    width: 182px;
-    height: 86;
+  .logo{
+    img {
+      width: 182px;
+      height: 86px;
+    }
   }
-}
 
-nav{
-  height: inherit;
-  display: flex;
-  width: 40vw;
-  align-items: center;
-  justify-content: space-between;
-  margin-right: 15%;
-  a{
-    padding:20px 35px;
-    font-size:24px;
+  nav{
+    a{
+      padding:20px 35px;
+      font-size:24px;
+    }
+    a:hover{
+      background-color: rgba($color: #ffffff, $alpha: 0.6);
+    }
   }
-  a:hover{
-    background-color: rgba($color: #ffffff, $alpha: 0.6);
+
+  .cart{
+      height:100px;
+      width:150px;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+
+    a{
+      font-size: 20px;
+      width: inherit;
+      height: 70px;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+    }
+    a:hover{
+      background-color: rgba($color: #ffffff, $alpha: 0.6);
+    }
+
+
   }
 }

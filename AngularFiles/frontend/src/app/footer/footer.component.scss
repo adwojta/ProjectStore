@@ -1,11 +1,40 @@
 footer{
   .grid-container {
+    height: 280px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 10fr 1fr;
     gap: 0px 0px;
     grid-template-areas:
       ". ."
       ". .";
+  }
+  .contact{
+    grid-column: 1/ span 1;
+    grid-row: 1/ span 1;
+    background-color: rgba($color: #CA33FF, $alpha: 0.15);
+
+    .logo{
+      margin-left: 100px;
+      img {
+        width: 182px;
+        height: 86;
+      }
+    }
+  }
+  .map{
+    grid-column: 2/ span 1;
+    grid-row: 1/ span 1;
+    background-image: url(./../../assets/img/Map.PNG);
+    background-size: cover;
+    background-position: center;
+  }
+  .stamp{
+    grid-column: 1/ span 2;
+    grid-row: 2/ span 1;
+    background-color: #7A7A7A;
+    color: white;
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 }
