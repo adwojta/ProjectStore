@@ -12,7 +12,6 @@ import io2.puertolego.repository.CommentRepo;
 @RestController
 public class CommentController {
 
-
     private CommentRepo repo;
 
     @Autowired

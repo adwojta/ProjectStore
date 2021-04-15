@@ -1,3 +1,66 @@
 .container{
-
+text-align: center;
+img {
+    width: 182px;
+    height: 86;
+  }
 }
+
+.grid {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      ". . .";
+      img {
+        width: 182px;
+        height: 86;
+      }
+  }
+ 
+  .jeden {
+    grid-column: 1 ;
+    grid-row: 1;
+    margin-top: 100px;
+    margin-left: 200px;
+    //text-align: center;
+  }
+  .dwa {
+    grid-column: 2 ;
+    grid-row: 1;
+    //text-align: center;
+  }
+  .trzy {
+    grid-column: 3 ;
+    grid-row: 1;
+    margin-top: 150px;
+    margin-right: 400px;
+
+
+    //text-align: ;
+  }
+
+
+
+.title{
+    font-size: 70px;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      ". .";
+  }
+  .one {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    //text-align: right;
+  }
+  .two {
+    grid-column: 2 / 2;
+    grid-row: 1;
+    //text-align: left;
+  }

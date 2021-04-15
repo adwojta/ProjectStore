@@ -1,7 +1,6 @@
 package io2.puertolego.models;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -13,7 +12,6 @@ public class Product {
 
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id_pro;
 	private double price;
 	private String name;
@@ -21,10 +19,13 @@ public class Product {
 	private int quantity;
 	private int elements;
 	private String age;
-	
-	
-	public Product(double price, String name, String collection, int quantity, int elements, String age) {
+
+
+
+
+	public Product(int id_pro, double price, String name, String collection, int quantity, int elements, String age) {
 		super();
+		this.id_pro = id_pro;
 		this.price = price;
 		this.name = name;
 		this.collection = collection;
@@ -35,7 +36,14 @@ public class Product {
 	public Product() {
 		super();
 	}
-	
+
+	public int getId_pro() {
+		return id_pro;
+	}
+
+	public void setId_pro(int id_pro) {
+		this.id_pro = id_pro;
+	}
 	public double getPrice() {
 		return price;
 	}

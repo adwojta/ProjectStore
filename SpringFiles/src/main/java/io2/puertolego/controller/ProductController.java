@@ -12,7 +12,6 @@ import io2.puertolego.repository.ProductRepo;
 
 @RestController
 public class ProductController {
-
 	
 	private ProductRepo repo; 
 	
@@ -20,10 +19,7 @@ public class ProductController {
 	public ProductController(ProductRepo repo) {
 		this.repo = repo;
 	}
-	
-	
-	
-	
+
 	@GetMapping("/product/all/")
 	public List<Product> getAllProduct(){
 		List<Product> queryResults = repo.findAll();
