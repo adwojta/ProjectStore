@@ -1,0 +1,72 @@
+.clip{
+  width: 100vw;
+  height: 50px;
+  background-color: #CA33FF;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  a{
+    color:white;
+  }
+}
+
+.links{
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+header{
+  width: 100vw;
+  height: 100px;
+  background-color: #FFF500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+}
+.contact, .login{
+  height: 50px;
+  text-align: center;
+  width: 150px;
+  padding:0 20px;
+  display: flex;
+  align-items: center;
+
+}
+.contact{
+padding-right: 30px;
+}
+.contact:hover,.login:hover{
+  background-color: #d257ff;
+}
+svg{
+  width: 20px;
+  fill: rgb(255, 255, 255);
+  margin-right: 15px;
+}
+
+.logo{
+  margin-left: 100px;
+  img {
+    width: 182px;
+    height: 86;
+  }
+}
+
+nav{
+  height: inherit;
+  display: flex;
+  width: 40vw;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 15%;
+  a{
+    padding:20px 35px;
+    font-size:24px;
+  }
+  a:hover{
+    background-color: rgba($color: #ffffff, $alpha: 0.6);
+  }
+}

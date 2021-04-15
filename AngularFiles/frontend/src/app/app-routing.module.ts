@@ -8,7 +8,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { BasketComponent } from './basket/basket.component';
 import { AnnouncementsComponent } from './announcements/announcements.component';
 import { ContactComponent } from './contact/contact.component';
-import { AppComponent } from './app.component';
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';

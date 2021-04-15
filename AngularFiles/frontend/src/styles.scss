@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Ranchers";
+  src: local("Rnachers"), url(./assets/fonts/Ranchers/Ranchers-Regular.ttf) format("truetype");
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Ranchers;
+  letter-spacing: 1px;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
