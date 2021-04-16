@@ -36,12 +36,12 @@ private WishListRepo repo;
 	
 	@ApiOperation(value = "Adding new item to WishList")
 	@PostMapping("/wishlist")
-	public ResponseEntity<?> addNewItem(@RequestParam(required=true) int id_client, @RequestParam(required=true) int id_pro, @RequestParam(required=true) String authKey) {
+	public ResponseEntity<String> addNewItem(@RequestParam(required=true) int id_client, @RequestParam(required=true) int id_pro, @RequestParam(required=true) String authKey) {
 		boolean authorized = repo.requestAuthorization(id_client, authKey);
 		
 		if(authorized) {
 			repo.addNewItem(id_client, id_pro);
-			return new ResponseEntity<>(HttpStatus.OK.toString(),HttpStatus.OK);
+			return new ResponseEntity<String>(HttpStatus.CREATED.toString(),HttpStatus.CREATED);
 		}
 		else {
 			return new ResponseEntity<String>(HttpStatus.UNAUTHORIZED.toString(), HttpStatus.UNAUTHORIZED);
