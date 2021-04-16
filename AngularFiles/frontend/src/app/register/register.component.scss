@@ -1,0 +1,43 @@
+.registerform{
+    text-align: center;
+    font-size:30px
+}
+img {
+    margin-top:60px;
+}
+h2{
+    font-size:20px
+}
+#submit{
+    
+    width: 180px;
+    font-size:20px;
+    text-decoration: none;
+    color: black;
+    background-color: #FFF500;
+    box-shadow:inset 0px 1px 0px 0px #fff6af;
+  }
+  #submit:hover {
+	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+	background-color:#ffab23;
+}
+#submit:active {
+	position:relative;
+	top:1px;
+}
+label,
+input {
+  display: inline-block;
+}
+label {
+    width: 30%;
+    text-align: right;
+  }
+  
+  label+input {
+    width: 30%;
+    margin: 0 30% 0 2%;
+  }
+  input+input {
+    float: right;
+  }
