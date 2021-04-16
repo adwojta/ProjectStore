@@ -16,20 +16,18 @@ public class Client {
 	private String name;
 	private String surname;
 	private String password;
-	private int id_adr;
 	
 	public Client() {
 		super();
 	}
 	
-	public Client(int id_client, String username, String name, String surname, String password, int id_adr) {
+	public Client(int id_client, String username, String name, String surname, String password) {
 		super();
 		this.id_client = id_client;
 		this.username = username;
 		this.name = name;
 		this.surname = surname;
 		this.password = password;
-		this.id_adr = id_adr;
 	}
 	public int getId_client() {
 		return id_client;
@@ -61,10 +59,5 @@ public class Client {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getId_adr() {
-		return id_adr;
-	}
-	public void setId_adr(int id_adr) {
-		this.id_adr = id_adr;
-	}
+
 }
