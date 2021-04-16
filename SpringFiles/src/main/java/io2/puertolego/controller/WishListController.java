@@ -2,6 +2,8 @@ package io2.puertolego.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,15 +29,24 @@ private WishListRepo repo;
 
 	@ApiOperation(value = "Get all product")
 	@GetMapping("/wishlist/{id_client}")
-	public List<WishList> getAllProduct(@PathVariable int id_client){
-		List<WishList> queryResults = repo.getClientWishList(id_client);	
+	public List<WishList> getAllProduct(@PathVariable int id_client, @RequestParam(required=true) String authKey){
+		List<WishList> queryResults = repo.getClientWishList(id_client,authKey);	
 		return queryResults;
 	}
 	
 	@ApiOperation(value = "Adding new item to WishList")
 	@PostMapping("/wishlist")
-	public void addNewItem(@RequestParam(required=true) int id_client, @RequestParam(required=true) int id_pro) {
-		repo.addNewItem(id_client, id_pro);
+	public ResponseEntity<?> addNewItem(@RequestParam(required=true) int id_client, @RequestParam(required=true) int id_pro, @RequestParam(required=true) String authKey) {
+		boolean authorized = repo.requestAuthorization(id_client, authKey);
+		
+		if(authorized) {
+			repo.addNewItem(id_client, id_pro);
+			return new ResponseEntity<>(HttpStatus.OK.toString(),HttpStatus.OK);
+		}
+		else {
+			return new ResponseEntity<String>(HttpStatus.UNAUTHORIZED.toString(), HttpStatus.UNAUTHORIZED);
+		}
+
 	}
 	
 }
