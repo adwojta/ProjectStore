@@ -1,5 +1,8 @@
 package io2.puertolego.models;
 
+import java.util.List;
+
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,13 +23,16 @@ public class Transaction {
 	private String street;
 	private String date;
 	private String status;
+	
+	@ElementCollection(targetClass=Product.class)
+	private List<Product> itemList;
 		
 	public Transaction() {
 		super();
 	}
 	
 	public Transaction(int id_pro, double price, String paymentMethod, String city, String country, String postcode,
-			String street, String date, String status) {
+			String street, String date, String status, List<Product> itemList) {
 		super();
 		this.id_pro = id_pro;
 		this.price = price;
@@ -37,7 +43,10 @@ public class Transaction {
 		this.street = street;
 		this.date = date;
 		this.status = status;
+		this.itemList = itemList;
 	}
+
+
 	public int getId_pro() {
 		return id_pro;
 	}
@@ -91,6 +100,14 @@ public class Transaction {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public List<Product> getItemList() {
+		return itemList;
+	}
+
+	public void setItemList(List<Product> itemList) {
+		this.itemList = itemList;
 	}
 	
 	
