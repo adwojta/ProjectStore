@@ -11,7 +11,7 @@ export class ProductService {
   constructor(private http: HttpClient) {
    }
 
-   getProducts() {
-    return this.http.get('http://localhost:8080/product/all/');
+   getProductforAnnouncements() {
+    return this.http.get('http://localhost:8080/product/collection/Marvel');
   }
 }

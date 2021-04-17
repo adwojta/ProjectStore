@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-product-preview',
@@ -6,9 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-preview.component.scss']
 })
 export class ProductPreviewComponent implements OnInit {
-  id: String = "sup";
-  title: String = "normalnie fajne lego creeper";
-  price: number = 199.90;
+
+  @Input() id: number;
+  @Input() title: String;
+  @Input() price: number;
   constructor() { }
 
   ngOnInit(): void {

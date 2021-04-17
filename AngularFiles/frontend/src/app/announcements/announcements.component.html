@@ -1,32 +1,5 @@
 <div>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  <app-product-preview></app-product-preview>
-  </div>
+  <span *ngFor="let item of data">
+    <app-product-preview [id]="item.id_pro" [title]="item.name" [price]="item.price"></app-product-preview>
+  </span>
+</div>

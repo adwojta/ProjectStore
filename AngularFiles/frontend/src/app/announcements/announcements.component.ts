@@ -7,14 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./announcements.component.scss']
 })
 export class AnnouncementsComponent implements OnInit {
-  data: any;
+  data: any[];
 
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
 
-    this.productService.getProducts().subscribe((data: any[])=>{
-      console.log(data);
+    this.productService.getProductforAnnouncements().subscribe((data: any[])=>{
+      this.data = data;
     });
 
   }
