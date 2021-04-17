@@ -14,7 +14,7 @@ public class Comment {
     private int rating;
     private String description;
     private int id_pro;
-    private int id_client;
+    private String username;
 
     public int getId_com() {
         return id_com;
@@ -48,24 +48,22 @@ public class Comment {
         this.id_pro = id_pro;
     }
 
-    public int getId_client() {
-        return id_client;
+    public String getUsername() {
+        return username;
     }
 
-    public void setId_client(int id_client) {
-        this.id_client = id_client;
-    }
+    public void setUsername(String username) {this.username = username; }
 
     public Comment() {
         super();
     }
 
-    public Comment(int id_com, int rating, String description, int id_pro, int id_client) {
+    public Comment(int id_com, int rating, String description, int id_pro, String username) {
         super();
         this.id_com = id_com;
         this.rating = rating;
         this.description = description;
         this.id_pro = id_pro;
-        this.id_client = id_client;
+        this.username = username;
     }
 }
