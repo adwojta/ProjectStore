@@ -11,7 +11,7 @@ import io.swagger.annotations.ApiOperation;
 import io2.puertolego.models.Adress;
 import io2.puertolego.repository.AdressRepo;
 
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @Api(tags = "Adress", description = "Everything about Adress")
 public class AdressController {

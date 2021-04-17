@@ -9,7 +9,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io2.puertolego.repository.TransactionRepo;
 
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @Api(tags = "Transaction", description = "Everything about Transaction")
 public class TransactionController {

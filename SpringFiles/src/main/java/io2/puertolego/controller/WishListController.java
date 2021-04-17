@@ -11,7 +11,7 @@ import io.swagger.annotations.ApiOperation;
 import io2.puertolego.models.WishList;
 import io2.puertolego.repository.WishListRepo;
 
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @Api(tags = "WishList", description = "Everything about WishList")
 public class WishListController {
