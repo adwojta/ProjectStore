@@ -15,19 +15,17 @@ public class Client {
 	private String username;
 	private String name;
 	private String surname;
-	private String password;
 	
 	public Client() {
 		super();
 	}
 	
-	public Client(int id_client, String username, String name, String surname, String password) {
+	public Client(int id_client, String username, String name, String surname) {
 		super();
 		this.id_client = id_client;
 		this.username = username;
 		this.name = name;
 		this.surname = surname;
-		this.password = password;
 	}
 	public int getId_client() {
 		return id_client;
@@ -52,12 +50,6 @@ public class Client {
 	}
 	public void setSurname(String surname) {
 		this.surname = surname;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 }
