@@ -1,1 +1,6 @@
-<p>promo works!</p>
+<div>
+    <span *ngFor="let item of data">
+      <app-product-preview [id]="item.id_pro" [title]="item.name" [price]="item.price"></app-product-preview>
+    </span>
+  </div>
+  
