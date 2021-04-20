@@ -26,6 +26,6 @@ export class ProductService {
   }
 
   getSpecificSeries(serie) {
-    return this.http.get('http://localhost:8080/product/collections/' + serie);
+    return this.http.get('http://localhost:8080/product/collection/' + serie);
   }
 }

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-serie',
@@ -7,14 +9,18 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./serie.component.scss']
 })
 export class SerieComponent implements OnInit {
-  title: String;
-  constructor(private route: ActivatedRoute) { }
+  @Input() title: String;
+  data: any[];
+  constructor(private route: ActivatedRoute, private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.title = params['title'];
-      console.log(this.title);
+    this.route.paramMap.subscribe( params =>{
+      this.title = params.get('title');
+      this.productService.getSpecificSeries(this.title).subscribe((data: any[])=>{
+        this.data = data;
       });
+    });
+
   }
 
 }

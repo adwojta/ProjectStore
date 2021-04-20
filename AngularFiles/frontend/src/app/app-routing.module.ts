@@ -22,13 +22,14 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'product', component: ProductComponent },
-  { path: 'announcements/product', component: ProductComponent },
+  { path: ':announcements/product', component: ProductComponent },
   { path: 'promo/product', component: ProductComponent },
+  { path: 'series/serie/:title/product', component: ProductComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'promo', component: PromoComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'series', component: SeriesComponent },
-  { path: 'series/serie', component: SerieComponent },
+  { path: 'series/serie/:title', component: SerieComponent}
 
 ];
 
