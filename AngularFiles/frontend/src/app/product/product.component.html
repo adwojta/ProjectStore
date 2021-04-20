@@ -1,8 +1,17 @@
-<img src="./../../assets/img/products/{{id}}-b.jpg">
-wiek: {{product.age}}
-kolekcja: {{product.collection}}
-Ilość elementów : {{product.elements}}
-id: {{product.id_pro}}
-Name: {{product.name}}
-Cena: {{product.price}}
-Ilość w magazynie: {{product.quantity}}
+<div class="container">
+  <div class="main">
+    <img src="./../../assets/img/products/{{id}}-b.jpg">
+    <div class="info">
+      <p>{{product.name}}</p>
+      <p>Kod produktu: {{product.id_pro}}</p>
+      <p>Seria: {{product.collection}}</p>
+      <p>Ilość elementów: {{product.elements}} szt.</p>
+      <p>Wiek: {{product.age}} lat</p>
+      <p>Ilość w magazynie: {{product.quantity}} szt.</p>
+      <p>Cena: {{product.price}} zł</p>
+      <button>Do koszyka</button>
+    </div>
+  </div>
+  <div class="comments">Komentarze</div>
+  <hr>
+</div>

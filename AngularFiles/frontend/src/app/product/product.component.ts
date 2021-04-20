@@ -10,7 +10,14 @@ import {Product} from './../Product.model';
 })
 export class ProductComponent implements OnInit {
   id: number;
-  product: Product;
+  product: Product ={
+    "age": '',
+    "collection": '',
+    "elements": 0,
+    "id_pro": 0,
+    "name": '',
+    "price": 0,
+    "quantity": 0};
   constructor(private route: ActivatedRoute, private productService: ProductService) {
 
    }

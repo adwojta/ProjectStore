@@ -59,13 +59,17 @@ header{
       align-items: center;
       justify-content: center;
 
+
     a{
-      font-size: 20px;
+      font-size: 1.4rem;
       width: inherit;
       height: 70px;
       display:flex;
       align-items: center;
       justify-content: center;
+      border: 3px rgba($color: #ff0000, $alpha: 0.3) solid;
+
+
     }
     a:hover{
       background-color: rgba($color: #ffffff, $alpha: 0.6);
