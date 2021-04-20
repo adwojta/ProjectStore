@@ -23,6 +23,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'product', component: ProductComponent },
   { path: 'announcements/product', component: ProductComponent },
+  { path: 'promo/product', component: ProductComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'promo', component: PromoComponent },
   { path: 'register', component: RegisterComponent },
