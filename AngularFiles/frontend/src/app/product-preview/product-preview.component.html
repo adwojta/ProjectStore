@@ -1,5 +1,6 @@
 <div class="container">
-<a href="/product">
+<a  [routerLink]="['product']"
+[queryParams]="{id:[id]}">
   <div class="card">
     <img src="./../../assets/img/products/{{id}}-s.jpg">
     <p>{{title}}</p>
