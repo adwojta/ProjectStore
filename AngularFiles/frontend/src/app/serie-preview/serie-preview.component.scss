@@ -1,0 +1,17 @@
+a{
+  display: block;
+}
+.container{
+  width: 300px;
+  height:400px;
+  margin:20px;
+  text-align: center;
+  border-radius: 20px;
+
+  img{
+    width: 300px;
+    height:400px;
+    object-fit: contain;
+  }
+
+}

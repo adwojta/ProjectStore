@@ -12,6 +12,7 @@ import { ContactComponent } from './contact/contact.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { SerieComponent } from './serie/serie.component';
 
 const routes: Routes = [
   { path: 'announcements', component: AnnouncementsComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'promo', component: PromoComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'series', component: SeriesComponent },
+  { path: 'series/serie', component: SerieComponent },
 
 ];
 

@@ -17,6 +17,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { ProductPreviewComponent } from './product-preview/product-preview.component';
+import { SerieComponent } from './serie/serie.component';
+import { SeriePreviewComponent } from './serie-preview/serie-preview.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { ProductPreviewComponent } from './product-preview/product-preview.compo
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    ProductPreviewComponent
+    ProductPreviewComponent,
+    SerieComponent,
+    SeriePreviewComponent
   ],
   imports: [
     BrowserModule,

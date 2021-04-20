@@ -14,4 +14,20 @@ export class ProductService {
    getProductforAnnouncements() {
     return this.http.get('http://localhost:8080/product/collection/Marvel');
   }
+
+  getProductforPromo() {
+    return this.http.get('http://localhost:8080/product/promoted/');
+  }
+
+   getProduct(id) {
+    return this.http.get('http://localhost:8080/product/' + id + "/");
+  }
+
+  getSeries() {
+    return this.http.get('http://localhost:8080/product/collections/');
+  }
+
+  getSpecificSeries(serie) {
+    return this.http.get('http://localhost:8080/product/collections/'+ serie + "/");
+  }
 }
