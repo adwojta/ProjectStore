@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from './../product.service';
 
 @Component({
   selector: 'app-promo',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./promo.component.scss']
 })
 export class PromoComponent implements OnInit {
+  data:any[]
 
-  constructor() { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
+    this.productService.getProductforPromo().subscribe((data: any[])=>{
+      this.data = data;
+    });
+
   }
 
 }
