@@ -25,9 +25,9 @@ private WishListRepo repo;
 
 	@ApiOperation(value = "Get all product")
 	@GetMapping("/wishlist/{id_client}")
-	public List<WishList> getAllProduct(@PathVariable int id_client, @RequestParam(required=true) String authKey){
+	public ResponseEntity<List<WishList>> getAllProduct(@PathVariable int id_client, @RequestParam(required=true) String authKey){
 		List<WishList> queryResults = repo.getClientWishList(id_client,authKey);	
-		return queryResults;
+		return new ResponseEntity<List<WishList>>(queryResults, HttpStatus.OK);
 	}
 	
 	@ApiOperation(value = "Adding new item to WishList")

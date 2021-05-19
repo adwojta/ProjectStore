@@ -1,10 +1,14 @@
 package io2.puertolego.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.web.bind.annotation.*;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,10 +21,12 @@ import io2.puertolego.repository.ClientRepo;
 public class ClientController {
 	
 	private ClientRepo repo;
+	private ObjectMapper mapper;
 	
 	@Autowired
-	public ClientController(ClientRepo repo) {
+	public ClientController(ClientRepo repo,ObjectMapper mapper) {
 		this.repo = repo;
+		this.mapper = mapper;
 	}
 	
 	
@@ -57,19 +63,23 @@ public class ClientController {
 	
 	@ApiOperation(value = "Login Client")
 	@GetMapping("/Client/login")
-	public ResponseEntity<?> login(@RequestParam(required=true) String username, @RequestParam(required=true) String password){
+	public ResponseEntity<Object> login(@RequestParam(required=true) String username, @RequestParam(required=true) String password){
 			
 		int id = repo.getClientId(username);
 		String pw = repo.getClientPassword(id);
-		
+		ObjectNode response = mapper.createObjectNode();
+	
 		boolean pwcheck = BCrypt.checkpw(password, pw);
 		if(pwcheck) {
+			
 			String authKey = BCrypt.gensalt().substring(7,17);
 			repo.changeAuthKey(id, authKey);
-			return new ResponseEntity<String>(authKey,HttpStatus.OK);
+			response.put("id_client",String.valueOf(id));
+			response.put("authKey",authKey);
+			return new ResponseEntity<Object>(response,HttpStatus.OK);
 		}
 		else {
-			return new ResponseEntity<String>(HttpStatus.UNAUTHORIZED.toString(), HttpStatus.UNAUTHORIZED);
+			return new ResponseEntity<Object>(HttpStatus.UNAUTHORIZED.toString(), HttpStatus.UNAUTHORIZED);
 		}	
 	}
 	
