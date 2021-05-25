@@ -1,20 +1,24 @@
 package io2.puertolego.models;
 
-import java.util.List;
+import java.util.Set;
 
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+
+import javax.persistence.JoinColumn;
 
 @Entity
 @Table(name ="Transaction")
 public class Transaction {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id_pro;
+	private int id_trans;
 	private double price;
 	private String paymentMethod;
 	private String city;
@@ -24,17 +28,20 @@ public class Transaction {
 	private String date;
 	private String status;
 	
-	@ElementCollection(targetClass=Product.class)
-	private List<Product> itemList;
+	@ManyToMany
+	@JoinTable(name = "transaction_item",
+	joinColumns = @JoinColumn(name = "id_trans"),
+	inverseJoinColumns = @JoinColumn(name = "id_pro"))
+	private Set<Product> itemList;
 		
 	public Transaction() {
 		super();
 	}
 	
-	public Transaction(int id_pro, double price, String paymentMethod, String city, String country, String postcode,
-			String street, String date, String status, List<Product> itemList) {
+	public Transaction(int id_trans, double price, String paymentMethod, String city, String country, String postcode,
+			String street, String date, String status, Set<Product> itemList) {
 		super();
-		this.id_pro = id_pro;
+		this.id_trans = id_trans;
 		this.price = price;
 		this.paymentMethod = paymentMethod;
 		this.city = city;
@@ -47,11 +54,11 @@ public class Transaction {
 	}
 
 
-	public int getId_pro() {
-		return id_pro;
+	public int getId_trans() {
+		return id_trans;
 	}
-	public void setId_pro(int id_pro) {
-		this.id_pro = id_pro;
+	public void setId_trans(int id_trans) {
+		this.id_trans = id_trans;
 	}
 	public double getPrice() {
 		return price;
@@ -101,12 +108,10 @@ public class Transaction {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-
-	public List<Product> getItemList() {
+	public Set<Product> getItemList() {
 		return itemList;
 	}
-
-	public void setItemList(List<Product> itemList) {
+	public void setItemList(Set<Product> itemList) {
 		this.itemList = itemList;
 	}
 	
