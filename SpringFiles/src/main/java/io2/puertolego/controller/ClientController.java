@@ -64,7 +64,11 @@ public class ClientController {
 	@ApiOperation(value = "Login Client")
 	@GetMapping("/Client/login")
 	public ResponseEntity<Object> login(@RequestParam(required=true) String username, @RequestParam(required=true) String password){
-			
+		
+		if(!repo.usernameExist(username)) {
+			return new ResponseEntity<Object>(HttpStatus.UNAUTHORIZED.toString(), HttpStatus.UNAUTHORIZED);
+		}
+		
 		int id = repo.getClientId(username);
 		String pw = repo.getClientPassword(id);
 		ObjectNode response = mapper.createObjectNode();
