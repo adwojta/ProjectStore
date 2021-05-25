@@ -47,11 +47,11 @@ public class ClientController {
 	@ApiOperation(value = "Creating new Client")
 	@PostMapping("/Client/Register")
 	public ResponseEntity<?> register(@RequestParam(required=true) String username,@RequestParam(required=true) String name,@RequestParam(required=true) String surname,@RequestParam(required=true) String password){
-		boolean Availability = repo.usernameAvailability(username);
+		boolean availability = repo.usernameAvailability(username);
 		
-		System.out.println(Availability);
+		System.out.println(availability);
 		
-		if(Availability) {
+		if(availability) {
 			String hashedpw = BCrypt.hashpw(password, BCrypt.gensalt());
 			repo.registerClient(username, name, surname, hashedpw);
 			return new ResponseEntity<String>(HttpStatus.CREATED.toString(),HttpStatus.CREATED);
