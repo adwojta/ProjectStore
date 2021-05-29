@@ -59,9 +59,8 @@ public class AdressController {
 	@PutMapping("/adress")
 	public ResponseEntity<?> updateAdress(@RequestParam(required=true) int id_client, @RequestParam(required=true) String authKey,@RequestParam(required=true) int id_adr, @RequestParam(required=true) String city, @RequestParam(required=true) String country, @RequestParam(required=true) String street, @RequestParam(required=true) String postcode) {
 		boolean authorized = repo.requestAuthorization(id_client, authKey);
-		
 		if(authorized) {
-			repo.updateAdress(postcode, city, country, street, id_adr);
+			repo.updateAdress(city, country, street,postcode, id_adr);
 			return new ResponseEntity<>(HttpStatus.OK.toString(),HttpStatus.OK);
 		}
 		else {

@@ -34,15 +34,31 @@ private WishListRepo repo;
 	@PostMapping("/wishlist")
 	public ResponseEntity<String> addNewItem(@RequestParam(required=true) int id_client, @RequestParam(required=true) int id_pro, @RequestParam(required=true) String authKey) {
 		boolean authorized = repo.requestAuthorization(id_client, authKey);
+		boolean exist = repo.existInList(id_client, id_pro);
 		
-		if(authorized) {
+		if(authorized && !exist) {
 			repo.addNewItem(id_client, id_pro);
 			return new ResponseEntity<String>(HttpStatus.CREATED.toString(),HttpStatus.CREATED);
 		}
-		else {
+		else if(authorized && exist){
+			return new ResponseEntity<String>(HttpStatus.FORBIDDEN.toString(), HttpStatus.FORBIDDEN);
+		}else {
 			return new ResponseEntity<String>(HttpStatus.UNAUTHORIZED.toString(), HttpStatus.UNAUTHORIZED);
 		}
 
 	}
 	
+	@ApiOperation(value = "Delete item from WishList")
+	@DeleteMapping("/wishlist")
+	public ResponseEntity<String> deleteItem(@RequestParam(required=true) int id_client, @RequestParam(required=true) int id_wish, @RequestParam(required=true) String authKey) {
+		boolean authorized = repo.requestAuthorization(id_client, authKey);
+		
+		if(authorized) {
+			repo.deleteItemFromWishList(id_wish);
+			return new ResponseEntity<String>(HttpStatus.OK.toString(),HttpStatus.OK);
+		}
+		else {
+			return new ResponseEntity<String>(HttpStatus.UNAUTHORIZED.toString(), HttpStatus.UNAUTHORIZED);
+		}
+	}	
 }
