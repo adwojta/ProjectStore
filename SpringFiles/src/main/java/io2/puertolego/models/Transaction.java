@@ -1,6 +1,6 @@
 package io2.puertolego.models;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,14 +32,14 @@ public class Transaction {
 	@JoinTable(name = "transaction_item",
 	joinColumns = @JoinColumn(name = "id_trans"),
 	inverseJoinColumns = @JoinColumn(name = "id_pro"))
-	private Set<Product> itemList;
+	private List<Product> itemList;
 		
 	public Transaction() {
 		super();
 	}
 	
 	public Transaction(int id_trans, double price, String paymentMethod, String city, String country, String postcode,
-			String street, String date, String status, Set<Product> itemList) {
+			String street, String date, String status, List<Product> itemList) {
 		super();
 		this.id_trans = id_trans;
 		this.price = price;
@@ -108,10 +108,10 @@ public class Transaction {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public Set<Product> getItemList() {
+	public List<Product> getItemList() {
 		return itemList;
 	}
-	public void setItemList(Set<Product> itemList) {
+	public void setItemList(List<Product> itemList) {
 		this.itemList = itemList;
 	}
 	

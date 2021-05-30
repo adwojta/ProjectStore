@@ -22,7 +22,7 @@ public interface TransactionRepo extends JpaRepository<Transaction, Integer>{
 	@Transactional
 	@Modifying
 	@Query(value="insert into dbo.[transaction] (id_client,price,payment_method,city,street,country,postcode,date,status) values(?1,?2,?3,?4,?5,?6,?7,getDate(),?8)",nativeQuery=true)
-	void addTransaction(int id_client,float price, String paymant_method, String city, String street, String country, String postcode, String status);
+	void addTransaction(int id_client,double price, String paymant_method, String city, String street, String country, String postcode, String status);
 	
 	@Transactional
 	@Modifying
@@ -39,5 +39,8 @@ public interface TransactionRepo extends JpaRepository<Transaction, Integer>{
 	
 	@Query(value="select top 1 id_trans from dbo.[transaction] order by id_trans desc",nativeQuery=true)
 	int getLatestTransID();
+	
+	@Query(value="select quantity from dbo.[transaction_item] where id_trans = ?1 and id_pro = ?2",nativeQuery=true)
+	int getQuantityOfItem(int id_trans, int id_pro);
 }
 
