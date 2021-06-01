@@ -25,5 +25,11 @@ public interface WishListRepo extends JpaRepository<WishList, Integer>{
 	@Query(value="select (case when exists (select id_client, authKey from dbo.Client where id_client = ?1 and authKey = ?2 )then 'true' else 'false' end) as authorized",nativeQuery=true)
 	boolean requestAuthorization(int id_client,String authKey);
 	
+	@Query(value="select (case when exists (select id_client from dbo.[WishList] where id_client = ?1 and id_pro = ?2 )then 'true' else 'false' end) as exist",nativeQuery=true)
+	boolean existInList(int id_client,int id_pro);
 	
+	@Transactional
+	@Modifying
+	@Query(value="delete from [dbo].[WishList] where id_wish = ?1",nativeQuery=true)
+	void deleteItemFromWishList(int id_wish);
 }

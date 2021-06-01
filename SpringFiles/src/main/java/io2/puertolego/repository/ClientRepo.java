@@ -13,6 +13,9 @@ public interface ClientRepo extends JpaRepository<Client, Integer>{
 	
 	@Query(value="select (case when exists (select id_client, authKey from dbo.Client where id_client = ?1 and authKey = ?2 )then 'true' else 'false' end) as authorized",nativeQuery=true)
 	boolean requestAuthorization(int id_client,String authKey);
+	
+	@Query(value="select (case when exists (select id_client, authKey from dbo.Client where username = ?1 )then 'true' else 'false' end) as exist",nativeQuery=true)
+	boolean usernameExist(String username);
 		
 	@Query(value="SELECT [id_client], [username], [name], [surname] FROM [dbo].[Client] where id_client = ?1",nativeQuery=true)
 	Client getClientInfo(int id_client);

@@ -14,7 +14,6 @@ public interface AdressRepo extends JpaRepository<Adress, Integer>{
 	@Query(value="select (case when exists (select id_client, authKey from dbo.Client where id_client = ?1 and authKey = ?2 )then 'true' else 'false' end) as authorized",nativeQuery=true)
 	boolean requestAuthorization(int id_client,String authKey);
 	
-	
 	@Query(value="SELECT a.id_adr, a.city, a.country, a.street, a.postcode FROM dbo.Adress a join dbo.Client b on a.id_adr = b.id_adr where b.id_client = ?1",nativeQuery=true)
 	Adress getClientAdress(int id_client);
 	

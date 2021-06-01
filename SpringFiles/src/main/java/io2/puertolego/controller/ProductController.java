@@ -3,6 +3,8 @@ package io2.puertolego.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,42 +32,37 @@ public class ProductController {
 
 	@ApiOperation(value = "Get all product")
 	@GetMapping("/product/all/")
-	public List<Product> getAllProduct(){
+	public ResponseEntity<List<Product>> getAllProduct(){
 		List<Product> queryResults = repo.findAll();	
-		return queryResults;
+		return new ResponseEntity<List<Product>>(queryResults, HttpStatus.OK);
 	}
 	
 	@ApiOperation(value = "Get product by Id")
 	@GetMapping("/product/{id_pro}")
-	public Product getById(@PathVariable int id_pro){
-		//Optional<Product> queryResults = repo.findById(id_pro);
-		//Product product = queryResults.get();
-		
-		//return product;
-		
+	public ResponseEntity<Product> getById(@PathVariable int id_pro){		
 		Product queryResults = repo.getProductById(id_pro);
-		return queryResults;
+		return new ResponseEntity<Product>(queryResults, HttpStatus.OK);
 	}
 	
 	@ApiOperation(value = "Get all collections")
 	@GetMapping("/product/collections/")
-	public List<String> getAllCollection(){
+	public ResponseEntity<List<String>> getAllCollection(){
 		List<String> queryResults = repo.getAllCollection();
-		return queryResults;
+		return new ResponseEntity<List<String>>(queryResults, HttpStatus.OK);
 	}
 	
 	@ApiOperation(value = "Get collection by Id")
 	@GetMapping("/product/collection/{collection}")
-	public List<Product> getCollectionProducts(@PathVariable String collection ){
+	public ResponseEntity<List<Product>> getCollectionProducts(@PathVariable String collection ){
 		List<Product> queryResults = repo.getCollectionProducts(collection);
-		return queryResults;
+		return new ResponseEntity<List<Product>>(queryResults, HttpStatus.OK);
 	}
 	
 	@ApiOperation(value = "Get all promoted product")
 	@GetMapping("/product/promoted/")
-	public List<Product> getPromoted(){
+	public ResponseEntity<List<Product>> getPromoted(){
 		List<Product> queryResults = repo.getPromoted();
-		return queryResults;
+		return new ResponseEntity<List<Product>>(queryResults, HttpStatus.OK);
 	}
 	
 	
