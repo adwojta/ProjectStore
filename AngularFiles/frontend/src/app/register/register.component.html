@@ -1,26 +1,20 @@
 <div class="registerform">
     <h1>Rejestracja</h1>
-    <p>
-      <label for="name">Imię:
-      </label>
-      <input type="text" id="name">
-    </p>
-    <p>
-      <label for="surname">Nazwisko:
-      </label>
-      <input type="text" id="surname">
-    </p>
-    <p>
-      <label for="login">Login: </label>
-      <input type="text" id="login">
-    </p>
-    <p>
-      <label for="password">Hasło: </label>
-      <input type="text" id="password">
-    </p>
-    <br>
-    <input type="submit" id="submit" value="Zarejestruj się! ">
-    <br>
+    <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && register()">
+      <p><label for="username">Login: </label>
+        <input type="text" id="username" name="username" [(ngModel)]="model.username" required #username="ngModel"></p>
+      <br>
+      <p><label for="password">Hasło: </label>
+        <input type="password" id="password" name="password" [(ngModel)]="model.password" required></p>
+      <br>
+      <p><label for="name">Imie: </label>
+        <input type="text" id="name" name="name" [(ngModel)]="model.name" required></p>
+      <br>
+      <p><label for="surname">Nazwisko: </label>
+        <input type="text" id="surname" name="surname" [(ngModel)]="model.surname" required></p>
+      <br>
+      <input type="submit" id="submit" value="Zarejestruj się!"><br>
+      </form>
     <a href="login" class="log">
     <h2>Masz już konto? Zaloguj się!</h2>
     </a>

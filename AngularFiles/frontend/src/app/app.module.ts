@@ -19,6 +19,12 @@ import { HomeComponent } from './home/home.component';
 import { ProductPreviewComponent } from './product-preview/product-preview.component';
 import { SerieComponent } from './serie/serie.component';
 import { SeriePreviewComponent } from './serie-preview/serie-preview.component';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { AddressComponent } from './address/address.component';
+
+
 
 @NgModule({
   declarations: [
@@ -38,12 +44,16 @@ import { SeriePreviewComponent } from './serie-preview/serie-preview.component';
     HomeComponent,
     ProductPreviewComponent,
     SerieComponent,
-    SeriePreviewComponent
+    SeriePreviewComponent,
+    AddressComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

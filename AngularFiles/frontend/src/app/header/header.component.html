@@ -5,9 +5,14 @@
       Kontakt
     </div>
   </a>
-  <a routerLink="login" >
+  <a *ngIf="!isLogged" routerLink="login" >
     <div class="login">
       Logowanie
+    </div>
+  </a>
+  <a *ngIf="isLogged" routerLink="profile" >
+    <div class="login">
+      Konto
     </div>
   </a>
   </div>

@@ -1,3 +1,4 @@
+import { AddressComponent } from './address/address.component';
 import { SeriesComponent } from './series/series.component';
 import { PromoComponent } from './promo/promo.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -17,6 +18,7 @@ import { SerieComponent } from './serie/serie.component';
 const routes: Routes = [
   { path: 'announcements', component: AnnouncementsComponent },
   { path: 'basket', component: BasketComponent },
+  { path: 'address', component: AddressComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'contact', component: ContactComponent },
   { path: '', component: HomeComponent },

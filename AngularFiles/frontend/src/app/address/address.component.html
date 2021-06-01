@@ -1,0 +1,22 @@
+<form #loginForm="ngForm" (ngSubmit)="loginForm.valid && changeAddress()">
+  <p><label for="street">Ulica i nr domu: </label>
+    <input type="text" id="street" name="street" [(ngModel)]="address.street" required></p>
+  <br>
+  <p><label for="postcode">Kod Pocztowy: </label>
+    <input type="text" id="postcode" name="postcode" [(ngModel)]="address.postcode" required></p>
+  <br>
+  <p><label for="city">Miasto: </label>
+    <input type="text" id="city" name="city" [(ngModel)]="address.city" required></p>
+  <br>
+  <p><label for="country">Kraj: </label>
+    <select id="country" name="country" [(ngModel)]="address.country" required>
+      <option *ngFor="let item of kraje" value="{{item}}">{{item}}</option>
+    </select>
+  <br>
+  <p><label for="pay">Sposób płatności: </label>
+  <select id="pay" name="pay" [(ngModel)]="paymentMethod" required>
+    <option *ngFor="let item of paymentOptions" value="{{item}}">{{item}}</option>
+  </select>
+  <br>
+  <input type="submit" id="submitInfo" value="Zobacz podsumowanie"><br>
+  </form>

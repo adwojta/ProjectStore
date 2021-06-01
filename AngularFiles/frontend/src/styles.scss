@@ -1,3 +1,5 @@
+@import '~ngx-toastr/toastr';
+
 @font-face {
   font-family: "Ranchers";
   src: local("Rnachers"), url(./assets/fonts/Ranchers/Ranchers-Regular.ttf) format("truetype");
@@ -12,7 +14,9 @@ body{
   font-family: Ranchers;
   letter-spacing: 1px;
 }
-
+#toast-container{
+  font-family: 'Courier New', Courier, monospace;
+}
 a{
   text-decoration: none;
   color: black;
