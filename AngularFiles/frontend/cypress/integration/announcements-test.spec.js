@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 
 describe('announcements-test', () => {
-    it('serie lego should work', () => {
+    it('announcments should work', () => {
       cy.visit('/'); 
   
       

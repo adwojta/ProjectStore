@@ -1,41 +1,81 @@
-<div class="info">
-  <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && changeInfo()">
-    <p><label for="name">Imie: </label>
-      <input type="text" id="name" name="name" [(ngModel)]="model.name" required></p>
-    <br>
-    <p><label for="surname">Nazwisko: </label>
-      <input type="text" id="surname" name="surname" [(ngModel)]="model.surname" required></p>
-    <br>
-    <input type="submit" id="submitInfo" value="Zmień dane"><br>
-    </form>
-</div>
-<div class="pass">
-  <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && changePassword()">
-    <p><label for="OldPassword">Stare Hasło: </label>
-      <input type="password" id="OldPassword" name="OldPassword" [(ngModel)]="pass.old" required></p>
-  <br>
-  <p><label for="NewPassword">Nowe Hasło: </label>
-    <input type="password" id="NewPassword" name="NewPassword" [(ngModel)]="pass.new" required></p>
-  <br>
-  <input type="submit" id="submitPass" value="Zmień hasło"><br>
-  </form>
-</div>
-<div class="history">
-  <h3>Historia Zamówień:</h3>
-  <div *ngFor="let item of history">
-    <div>id: {{item.id_trans}}</div>
-    <div>data: {{item.date}}</div>
-    <div>cena: {{item.price}}</div>
-    <div>Status: {{item.status}}</div>
-  <br>
-  </div>
-</div>
-<div class="wish">
-  <h3>Lista Życzeń:</h3>
-  <div *ngFor="let item of wishes">
-    <div>Produkt: {{item.name}}</div>
-    <div>cena: {{item.price}}</div>
-  <br>
-  </div>
-</div>
-<button (click)="logOut()">WYLOGUJ</button>
+
+
+
+
+<ngb-accordion #acc="ngbAccordion" >
+  <ngb-panel id="toggle-1" title="Dane">
+    <ng-template ngbPanelContent>
+      <div class="info">
+        <form #loginForm="ngForm" id="change1" (ngSubmit)="loginForm.valid && changeInfo()">
+          <p><label for="name">Imie: </label>
+            <input type="text" id="name" name="name" [(ngModel)]="model.name" required></p>
+          <br>
+          <p><label for="surname">Nazwisko: </label>
+            <input type="text" id="surname" name="surname" [(ngModel)]="model.surname" required></p>
+          <br>
+          
+          <input type="submit" class="btn-primary" id="submitInfo" value="Zmień dane"><br>
+          </form>
+      </div>
+    </ng-template>
+  </ngb-panel>
+
+  
+    <ngb-panel id="toggle-2" title="Zmiana Hasła">
+      <ng-template ngbPanelContent>
+        <div class="pass">
+          <form #loginForm="ngForm" id="change2" (ngSubmit)="loginForm.valid && changePassword()">
+            <p><label for="OldPassword">Stare Hasło: </label>
+              <input type="password" id="OldPassword" name="OldPassword" [(ngModel)]="pass.old" required></p>
+          <br>
+          <p><label for="NewPassword">Nowe Hasło: </label>
+            <input type="password" id="NewPassword" name="NewPassword" [(ngModel)]="pass.new" required></p>
+          <br>
+          <input type="submit" class="btn-primary" id="submitPass" value="Zmień hasło"><br>
+          </form>
+        </div>
+      </ng-template>
+    </ngb-panel>
+
+
+  <ngb-panel id="toggle-3" title="Historia Zamówień">
+    <ng-template ngbPanelContent>
+      <div class="history">
+        <h3>Historia Zamówień:</h3>
+        <div *ngFor="let item of history">
+          <div>id: {{item.id_trans}}</div>
+          <div>data: {{item.date}}</div>
+          <div>cena: {{item.price}}</div>
+          <div>Status: {{item.status}}</div>
+        <br>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-panel>
+
+  <ngb-panel id="toggle-4" title="Lista Życzeń">
+    <ng-template ngbPanelContent>
+      <div class="wish">
+        <h3>Lista Życzeń:</h3>
+        <div *ngFor="let item of wishes">
+          <div>Produkt: {{item.name}}</div>
+          <div>cena: {{item.price}}</div>
+        <br>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
+
+<hr/>
+
+
+
+<button id="wyloguj" class="btn-primary" id="wyloguj" (click)="logOut()">WYLOGUJ</button>
+
+
+
+  
+
+
+<img src="../../assets/img/chipek.png" alt="" srcset="">

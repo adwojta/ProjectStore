@@ -1,14 +1,18 @@
 <ng-container *ngIf="cart.length!=0; else elseBlock">
-<div  *ngFor="let item of cart; index as i">
-<p>{{item.id}}</p>
-<p>{{item.name}}</p>
+<div  class= "kosz" *ngFor="let item of cart; index as i">
+<p>Kod produktu:{{item.id}}</p>
+<p>Nazwa: {{item.name}}</p>
 <p>Cena: {{item.price}}</p>
 <input (change)="update()" type="number" [(ngModel)]="item.qty" min="0" max="1000">
-<button (click)="removeItem(i)">delete</button>
+<button class="btn-danger" (click)="removeItem(i)">Usuń</button>
 </div>
-<p>wartość koszyka {{value.toFixed(2)}}</p>
+<p id="cena">Wartość koszyka:  {{value.toFixed(2)}} zł</p>
 
-<button (click)="continue()">dalej</button>
+<button class="btn-primary" id="dalej" (click)="continue()">Przejdź dalej</button>
+
+
+
+
 </ng-container>
 <ng-template #elseBlock>Koszyk jest pusty.</ng-template>
 

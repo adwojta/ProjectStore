@@ -1,7 +1,7 @@
 <div class="loginform">
     <h1>Zaloguj się!</h1>
     <br>
-    <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && login()">
+    <form #loginForm="ngForm" id="login" (ngSubmit)="loginForm.valid && login()">
     <p><label for="username">Login: </label>
     <input type="text" id="username" name="username" placeholder="Login" [(ngModel)]="model.username" required #username="ngModel"></p>
     <br>

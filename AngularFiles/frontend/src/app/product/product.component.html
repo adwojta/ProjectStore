@@ -13,25 +13,28 @@
       <button (click)="addItem()">Do koszyka</button>
     </div>
     <div *ngIf="token.logged">
-    <button *ngIf="butn" (click)="updateWishlist()">Usuń</button>
-    <button *ngIf="!butn" (click)="updateWishlist()">Dodaj</button>
+    <button *ngIf="butn" class="btn-primary" (click)="updateWishlist()">Usuń z listy życzeń</button>
+    <button *ngIf="!butn" class="btn-primary" id="dodaj" (click)="updateWishlist()">Dodaj do listy życzeń</button>
   </div>
   </div>
   <div class="comments">Komentarze</div>
   <hr>
-  <div *ngFor="let item of comments">
-    <p>{{item.rating}}/5</p>
-    <p>{{item.username}}</p>
+  <div *ngFor="let item of comments" class="comm">
+    <p>Ocena: {{item.rating}}/5</p>
+    <p>Użytkownik: {{item.username}}</p>
     <p>{{item.description}}</p>
   </div>
   <div *ngIf="token.logged">
     <br>
-    <p>DODAJ KOMENTARZ</p>
-    <form (ngSubmit)="form.valid && addComment()" #form="ngForm">
-      <input type="number"  [(ngModel)]="newComment.rating" name="rating" id="rating" min="1" max="5" required>
+    <hr>
+    <form (ngSubmit)="form.valid && addComment()" #form="ngForm" id="comment">
+      Oceń produkt: <input type="number"  [(ngModel)]="newComment.rating" name="rating" id="rating" min="1" max="5" required>
+      <br>
       <label for="description"></label>
-      <textarea name="description" id="description" [(ngModel)]="newComment.description" cols="30" rows="10" maxlength="300" required></textarea>
-      <input  type="submit" value="Dodaj komentarz">
+      <div class="d-flex flex-row align-items-start">
+      <textarea class="form-control ml-1 shadow-none textarea" name="description" id="description" [(ngModel)]="newComment.description"  maxlength="300" required></textarea>
+      </div>
+      <div class="mt-2 text-center"><input class="btn btn-primary btn-sm shadow-none" type="submit" value="Dodaj komentarz"></div>
     </form>
   </div>
 </div>
