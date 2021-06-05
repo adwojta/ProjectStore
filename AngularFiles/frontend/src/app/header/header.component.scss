@@ -8,7 +8,9 @@
     color:white;
   }
 }
-
+p{
+  margin-bottom: 0;
+}
 .links{
   display: flex;
   align-items: center;
@@ -68,8 +70,6 @@ header{
       align-items: center;
       justify-content: center;
       border: 3px rgba($color: #ff0000, $alpha: 0.3) solid;
-
-
     }
     a:hover{
       background-color: rgba($color: #ffffff, $alpha: 0.6);

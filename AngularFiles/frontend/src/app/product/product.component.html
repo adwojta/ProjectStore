@@ -12,9 +12,10 @@
       <div>Ilość: <input type="number"  [(ngModel)]="qty" name="quantity" id="quantity" min="1" max="{{product.quantity}}" style="width:60px;"></div>
       <button (click)="addItem()">Do koszyka</button>
     </div>
-    <div *ngIf="token.logged"></div>
+    <div *ngIf="token.logged">
     <button *ngIf="butn" (click)="updateWishlist()">Usuń</button>
     <button *ngIf="!butn" (click)="updateWishlist()">Dodaj</button>
+  </div>
   </div>
   <div class="comments">Komentarze</div>
   <hr>
@@ -23,14 +24,14 @@
     <p>{{item.username}}</p>
     <p>{{item.description}}</p>
   </div>
-  <div>
+  <div *ngIf="token.logged">
     <br>
     <p>DODAJ KOMENTARZ</p>
     <form (ngSubmit)="form.valid && addComment()" #form="ngForm">
       <input type="number"  [(ngModel)]="newComment.rating" name="rating" id="rating" min="1" max="5" required>
       <label for="description"></label>
       <textarea name="description" id="description" [(ngModel)]="newComment.description" cols="30" rows="10" maxlength="300" required></textarea>
-      <input type="submit" value="Dodaj komentarz">
+      <input  type="submit" value="Dodaj komentarz">
     </form>
   </div>
 </div>

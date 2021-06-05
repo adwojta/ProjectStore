@@ -1,3 +1,4 @@
+@import '~bootstrap/scss/bootstrap';
 @import '~ngx-toastr/toastr';
 
 @font-face {
@@ -17,7 +18,9 @@ body{
 #toast-container{
   font-family: 'Courier New', Courier, monospace;
 }
-a{
+a,a:hover{
   text-decoration: none;
   color: black;
 }
+
+
