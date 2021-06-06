@@ -17,14 +17,14 @@ export class ProductService {
     this.messageSource.next(message)
   }
   getOrders(user){
-    return this.http.get(`http://localhost:8080/Transaction/${user.id}?authKey=${user.token}`,{observe : 'response',responseType: 'json'}).pipe(
+    return this.http.get(`https://puertolego-backend.herokuapp.com/Transaction/${user.id}?authKey=${user.token}`,{observe : 'response',responseType: 'json'}).pipe(
       catchError(() => {
         this.toastr.error("Nie można wczytać historii tranzakcji!","Niepowodzenie!");
         return throwError("err");
       }))
   }
   makeOrder(user,items){
-    return this.http.post(`http://localhost:8080/Transaction/${user.client}?authKey=${user.token}&city=${user.city}&country=${user.country}&paymentMethod=${user.paymentMethod}&postcode=${user.postcode}&price=${user.price}&street=${user.street}`,items,{observe : 'response',responseType: 'text'}).pipe(
+    return this.http.post(`https://puertolego-backend.herokuapp.com/Transaction/${user.client}?authKey=${user.token}&city=${user.city}&country=${user.country}&paymentMethod=${user.paymentMethod}&postcode=${user.postcode}&price=${user.price}&street=${user.street}`,items,{observe : 'response',responseType: 'text'}).pipe(
       catchError(() => {
         this.toastr.error("Brak tylu sztuk w magazynie! Sprawdź dostępność na stronie produktu!","Niepowodzenie!");
         return throwError("err");
@@ -32,30 +32,30 @@ export class ProductService {
   }
 
   getProductforAnnouncements() {
-    return this.http.get('http://localhost:8080/product/collection/Marvel');
+    return this.http.get('https://puertolego-backend.herokuapp.com/product/collection/Marvel');
 
    }
   getProductforPromo() {
-    return this.http.get('http://localhost:8080/product/promoted/');
+    return this.http.get('https://puertolego-backend.herokuapp.com/product/promoted/');
   }
 
   getProduct(id) {
-    return this.http.get('http://localhost:8080/product/' + id);
+    return this.http.get('https://puertolego-backend.herokuapp.com/product/' + id);
   }
 
   getSeries() {
-    return this.http.get('http://localhost:8080/product/collections/');
+    return this.http.get('https://puertolego-backend.herokuapp.com/product/collections/');
   }
 
   getSpecificSeries(serie) {
-    return this.http.get('http://localhost:8080/product/collection/' + serie);
+    return this.http.get('https://puertolego-backend.herokuapp.com/product/collection/' + serie);
   }
 
   getProductComments(id) {
-    return this.http.get('http://localhost:8080/comment/' + id);
+    return this.http.get('https://puertolego-backend.herokuapp.com/comment/' + id);
   }
   postComment(comment) {
-    return this.http.post(`http://localhost:8080/comment/${comment.id}?authKey=${comment.auth}&description=${comment.desc}&id_client=${comment.client}&rating=${comment.rating}`,comment,{observe : 'response',responseType: 'text'});
+    return this.http.post(`https://puertolego-backend.herokuapp.com/comment/${comment.id}?authKey=${comment.auth}&description=${comment.desc}&id_client=${comment.client}&rating=${comment.rating}`,comment,{observe : 'response',responseType: 'text'});
   }
 
 }
