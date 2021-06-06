@@ -18,7 +18,7 @@ import io2.puertolego.repository.ProductRepo;
 
 
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://puertolego.azurewebsites.net")
 @RestController
 @Api(tags = "Product", description = "Everything about Product")
 public class ProductController {

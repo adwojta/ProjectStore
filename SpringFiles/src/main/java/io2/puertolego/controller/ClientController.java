@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiOperation;
 import io2.puertolego.models.Client;
 import io2.puertolego.repository.ClientRepo;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://puertolego.azurewebsites.net")
 @RestController
 @Api(tags = "Client", description = "Everything about Client")
 public class ClientController {

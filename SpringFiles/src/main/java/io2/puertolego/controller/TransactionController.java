@@ -15,7 +15,7 @@ import io2.puertolego.models.Transaction;
 import io2.puertolego.models.TransactionItem;
 import io2.puertolego.repository.TransactionRepo;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://puertolego.azurewebsites.net")
 @RestController
 @Api(tags = "Transaction", description = "Everything about Transaction")
 public class TransactionController {

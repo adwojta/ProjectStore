@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io2.puertolego.models.Comment;
 import io2.puertolego.repository.CommentRepo;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://puertolego.azurewebsites.net")
 @RestController
 @Api(tags = "Comment", description = "Everything about Comment")
 public class CommentController {
